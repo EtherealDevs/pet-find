@@ -6,6 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'IdenMac') }}</title>
+        <link rel="icon" href="/idenmac.svg"> 
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

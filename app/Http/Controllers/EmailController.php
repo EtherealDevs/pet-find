@@ -17,7 +17,7 @@ class EmailController extends Controller
         Mail::send('correo.email', $request->all(), function($msg) use($subject,$message,$name,$email,$for){
             $msg->from($email,$name);
             $msg->subject($subject);
-            $msg->message($message);
+            $msg->text($message);
             $msg->to($for);
         });
         return view('home.index');
