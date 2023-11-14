@@ -364,17 +364,6 @@ return [
 
 
         ['header' => 'Configuracion de Cuentas'],
-        [
-            'text' => 'Perfil',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-user fa-fw',
-        ],
-
-        [
-            'text' => 'Configuracion',
-            'url'  => '#',
-            'icon' => 'fas fa-solid fa-wrench fa-fw',
-        ],
 
         [
             'text' => 'Usuarios',
