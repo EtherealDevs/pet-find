@@ -50,7 +50,7 @@ class UserController extends Controller
 
         $user = User::create($request->all());
 
-        return redirect()->route('admin.users.edit', $user)->with('info', 'La Heladera se almaceno con exito');
+        return redirect()->route('admin.users.edit', $user)->with('info', 'user');
     }
 
     /**
