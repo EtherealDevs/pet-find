@@ -74,7 +74,7 @@
                                 <div x-data>
                                     @csrf
                                     @auth
-                                        @can('writer')
+                                        @can('admin')
                                           <a href="{{ route('index') }}" class="block px-4 py-2 text-sm text-gray-700"
                                         role="menuitem" tabindex="-1" id="user-menu-item-0">Panel de Herramientas</a>
                                         @endcan
