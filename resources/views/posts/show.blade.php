@@ -54,7 +54,7 @@
                     </div>
                 </figure>
                 <div class="sm:mx-14 md:mx-14 xl:mx-24 2xl:mx-24 3xl:mx-24 my-4">
-                    <p class="text-xl text-black">{!! $post->body !!}</p>
+                    <p class="text-2xl text-black">{!! $post->body !!}</p>
                 </div>
             </div>
 
