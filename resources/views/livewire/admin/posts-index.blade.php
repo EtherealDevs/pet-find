@@ -42,9 +42,9 @@
         </table>
       </div>
 
-      <div classd="card-footer">
+    {{--   <div classd="card-footer">
         {{$posts->links()}}
-      </div>
+      </div> --}}
     @else
       <div class="card-body">
         <strong>No hay ningun registro...</strong>

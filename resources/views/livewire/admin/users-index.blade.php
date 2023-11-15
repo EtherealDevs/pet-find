@@ -30,9 +30,9 @@
            </table>
         </div>
         </div>
-       <div class="card-footer">
+       {{-- <div class="card-footer">
         {{$users->links()}}
-        </div> 
+        </div>  --}}
         @else
         <div class="card-body">
         <strong>No hay registros</strong>
