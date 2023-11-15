@@ -1,5 +1,4 @@
 <x-app-layout>
-
   <section class="text-gray-600 body-font bg-[url(https://images.unsplash.com/photo-1466781783364-36c955e42a7f?auto=format&fit=crop&q=80&w=3271&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-center ">
     <div class="backdrop-blur-2xl w-full">
       <div class="container px-5 py-24 mx-auto">

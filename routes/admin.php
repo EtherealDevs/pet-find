@@ -14,10 +14,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AnnouncementController;
 
 
-Route::resource('', AdminController::class)->only('index')->middleware('can:admin');
+Route::resource('', AdminController::class)->only('index')->middleware('can:writer');
 // Route::resource('tags', TagController::class)->names('admin.tags')->middleware('can:admin');
-Route::resource('pets', PetController::class)->names('admin.pets')->middleware('can:admin');
-Route::resource('posts', PostController::class)->names('admin.posts')->middleware('can:admin');
+Route::resource('pets', PetController::class)->names('admin.pets')->middleware('can:writer');
+Route::resource('posts', PostController::class)->names('admin.posts')->middleware('can:writer');
 Route::resource('users', UserController::class) ->names('admin.users')->middleware('can:admin');
 Route::resource('image', ImageController::class)->names('admin.image')->middleware('can:admin');
 // Route::resource('vaccines', VaccineController::class)->names('admin.vaccines')->middleware('can:admin');
