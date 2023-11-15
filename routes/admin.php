@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AnnouncementController;
 
 
-Route::resource('', AdminController::class)->only('index')->middleware('can:admin');
+Route::resource('', AdminController::class)->names('index')->middleware('can:admin');
 // Route::resource('tags', TagController::class)->names('admin.tags')->middleware('can:admin');
 Route::resource('pets', PetController::class)->names('admin.pets')->middleware('can:admin');
 Route::resource('posts', PostController::class)->names('admin.posts')->middleware('can:admin');
