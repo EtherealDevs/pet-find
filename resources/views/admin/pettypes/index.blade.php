@@ -41,7 +41,7 @@
                         <td width="10px">
                             <button type="button" class="text-white btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-{{$pet_type->id}}">
                                 Eliminar
-                            </button>
+                             </button>
                         </td>
                      </tr>
                      @include('admin.pettypes.delete')
