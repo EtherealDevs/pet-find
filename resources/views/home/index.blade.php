@@ -33,7 +33,7 @@
                     </div>
                     <div class="text-center">
                         <h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Bienvenidos a Iden MAC</h1>
-                        <p class="mt-2 text-lg leading-8 text-white">Somos una APP dedicada a concientizar sobre el maltrato animal</p>
+                        <p class="mt-2 text-lg leading-8 text-white">Somos una organizacion dedicada a concientizar sobre el maltrato animal</p>
 
                         @if (Auth::check())
                             <button

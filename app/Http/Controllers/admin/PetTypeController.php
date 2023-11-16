@@ -74,17 +74,17 @@ class PetTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PetType $pettype)
+    public function update(Request $request, PetType $pet_type)
     {
         $request->validate([
             'name' => 'required',
-            'slug' => "required|unique:pet_types,slug,$pettype->id",
+            'slug' => "required|unique:pet_types,slug,$pet_type->id",
             'description' => 'required',
         ]);
 
-        $pettype->update($request->all());
+        $pet_type->update($request->all());
 
-        return redirect()->route('admin.pettypes.edit', $pettype)->with('info', 'La Etiqueta se actualizo con exito');
+        return redirect()->route('admin.pettypes.edit', $pet_type)->with('info', 'La Etiqueta se actualizo con exito');
     }
 
 
