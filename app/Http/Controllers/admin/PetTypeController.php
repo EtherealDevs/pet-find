@@ -10,9 +10,9 @@ class PetTypeController extends Controller
 {
     public function index()
     {
-        $pet_type = PetType::all();
+        $pet_types = PetType::all();
 
-        return view('admin.pettypes.index', compact('pet_type'));
+        return view('admin.pettypes.index', compact('pet_types'));
     }
 
     /**
@@ -61,10 +61,10 @@ class PetTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PetType $pet_type)
+    public function edit(PetType $pettype)
     {
 
-        return view('admin.pettypes.edit', compact('pet_type'));
+        return view('admin.pettypes.edit', compact('pettype'));
     }
 
     /**
@@ -74,17 +74,17 @@ class PetTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PetType $pet_type)
+    public function update(Request $request, PetType $pettype)
     {
         $request->validate([
             'name' => 'required',
-            'slug' => "required|unique:pet_types,slug,$pet_type->id",
+            'slug' => "required|unique:pet_types,slug,$pettype->id",
             'description' => 'required',
         ]);
 
-        $pet_type->update($request->all());
+        $pettype->update($request->all());
 
-        return redirect()->route('admin.pettypes.edit', $pet_type)->with('info', 'La Etiqueta se actualizo con exito');
+        return redirect()->route('admin.pettypes.index', $pettype)->with('info', 'El registro de la especie se actualizo con exito');
     }
 
 
@@ -94,9 +94,9 @@ class PetTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PetType $pet_type)
+    public function destroy(PetType $pettype)
     {
-        $pet_type->delete();
+        $pettype->delete();
         return redirect()->route('admin.pettypes.index')->with('info', 'La Especie se eliminó del registro exitosamente');
     }
 }

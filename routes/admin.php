@@ -23,4 +23,4 @@ Route::resource('image', ImageController::class)->names('admin.image')->middlewa
 Route::resource('pettypes', PetTypeController::class)->names('admin.pettypes')->middleware('can:admin');
 Route::resource('categories', CategoryController::class)->names('admin.categories')->middleware('can:admin');
 
-Route::resource('announcements', AnnouncementController::class)->names('admin.announcements')->middleware('can:admin');
+// Route::resource('announcements', AnnouncementController::class)->names('admin.announcements')->middleware('can:admin');

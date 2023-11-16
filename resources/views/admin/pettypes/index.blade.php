@@ -31,7 +31,7 @@
 
                 <tbody>
 
-                 @foreach ($pet_type as $pet_type)
+                 @foreach ($pet_types as $pet_type)
                      <tr>
                         <td>{{$pet_type->id}}</td>
                         <td>{{ucfirst(__($pet_type->name))}}</td>
@@ -39,12 +39,14 @@
                         <td width="10px">
                             <a  class="text-white rounded-lg btn btn-primary" href="{{route('admin.pettypes.edit', $pet_type)}}">Editar</a></td>
                         <td width="10px">
-                            <button type="button" class="text-white btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete-{{$pet_type->id}}">
-                                Eliminar
-                             </button>
+                            <form action="{{route('admin.pettypes.destroy', ['pettype'=>$pet_type])}}" method="POST">
+                                @csrf
+                                @method('delete')
+
+                                <button type="submit" onclick="return confirm('¿Desea eliminar esta especie del registro?')" class="text-white rounded-lg btn btn-danger">Eliminar</button>
+                            </form>
                         </td>
                      </tr>
-                     @include('admin.pettypes.delete')
                  @endforeach
 
                 </tbody>
