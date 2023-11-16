@@ -13,7 +13,7 @@
           <form action="{{route('admin.pettypes.destroy', $pet_type)}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="submit" onclick="return confirm('¿Desea eliminar esta especie del registro?')" class="btn btn-danger">Eliminar</button>
             </form>
         </div>
       </div>
