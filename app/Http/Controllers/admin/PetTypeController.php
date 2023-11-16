@@ -97,6 +97,6 @@ class PetTypeController extends Controller
     public function destroy(PetType $pet_type)
     {
         $pet_type->delete();
-        return redirect()->route('admin.pettypes.index')->with('info', 'La Etiqueta se elimino con exito');
+        return redirect()->route('admin.pettypes.index')->with('info', 'La Especie se eliminó del registro exitosamente');
     }
 }
