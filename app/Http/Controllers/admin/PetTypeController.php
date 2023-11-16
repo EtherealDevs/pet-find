@@ -61,10 +61,10 @@ class PetTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(PetType $pettype)
+    public function edit(PetType $pet_type)
     {
 
-        return view('admin.pettypes.edit', compact('pettype'));
+        return view('admin.pettypes.edit', compact('pet_type'));
     }
 
     /**
