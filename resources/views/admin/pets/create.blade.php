@@ -70,7 +70,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('gender', 'Genero') !!}
+                {!! Form::label('gender', 'Género') !!}
                
                 <select class='form-control' name="gender" id="gender">
                     <option value="">Seleccionar</option>
@@ -90,7 +90,7 @@
             
 
             <div class="form-group">
-                {!! Form::label('features', 'Caracteristicas') !!}
+                {!! Form::label('features', 'Características') !!}
                 {!! Form::text('features', NULL, ['class' => 'form-control', 'placeholder' => 'Caracteristicas distintivas de tu mascota. Puede ser el color del pelaje, ojos, su tamaño o demas cualidades identificativas']) !!}
 
                 @error('features')
@@ -99,13 +99,27 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('city', 'Ciudad') !!}
-                {!! Form::text('city', NULL, ['class' => 'form-control', 'placeholder' => 'Ciudad donde se encuentra tu mascota']) !!}
+                {!! Form::label('city', 'Ubicación') !!}
+                
+            <select
+                class="form-control "
+                required="required" name="city"
+                id="city">
+                <option value="{{ old('city') }}">Seleccionar</option>
+                @foreach ($cities as $city)
+                <option value="{{$city->name}}">{{$city->name}}</option>
+                @endforeach
+            </select>
+            @error('city')
+            <small class="text-red-500">{{__($message)}}</small>
+            @enderror
 
                 @error('city')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
+
             </div>
+            
 
             
             

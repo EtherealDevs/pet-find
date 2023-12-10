@@ -50,11 +50,11 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        $request->file('file')->store('post');
+        
         $post = Post::create($request->all());
 
         if($request->file('file')){
-         $url = Storage::put('/', $request->file('file'));
+         $url = $request->file('file')->store('post', 'public');
          $post->image()->create([
              'url' => $url
          ]);}
@@ -113,7 +113,7 @@ class PostController extends Controller
         ]);
 
         if ($fileIsNotNull) {
-            $url = $request->file('file')->store('/');
+            $url = $request->file('file')->store('post', 'public');
             if ($post->image) {
                 $image = $post->image()->update([
                     'url' => $url

@@ -56,7 +56,7 @@ class PetController extends Controller
         
         $pet->update($request->except('file'));
         if ($fileIsNotNull) {
-            $url = $request->file('file')->store('/');
+            $url = $request->file('file')->store('pet', 'public');
             if ($pet->image) {
                 $image = $pet->image()->update([
                     'url' => $url
@@ -84,7 +84,7 @@ class PetController extends Controller
             'pet_type_id' => 'required',
             'user_id' => 'required'
         ]);
-        $url = $request->file('file')->store('/');
+        $url = $request->file('file')->store('pet', 'public');
         $pet = Pet::create($request->except('file'));
         $pet->image()->create([
             'url' => $url

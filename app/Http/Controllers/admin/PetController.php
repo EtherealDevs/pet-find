@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StorePostRequest;
+use App\Models\City;
 use Illuminate\Http\Request;
 use App\Models\Pet;
 use App\Models\PetType;
@@ -31,13 +32,15 @@ class PetController extends Controller
      */
     public function create(Pet $pet)
     {
+        $cities = City::all();
         $pet_types = PetType::all();
         $user = User::pluck('name','id');
 
         return view('admin.pets.create', [
             'pet_types'=>$pet_types,
             'user'=>$user,
-            'pet'=>$pet
+            'pet'=>$pet,
+            'cities'=>$cities
         ]);
 
     }
@@ -61,7 +64,7 @@ class PetController extends Controller
             'pet_type_id' => 'required',
             'user_id' => 'required'
         ]);
-        $url = $request->file('file')->store('/');
+        $url = $request->file('file')->store('pet', 'public');
         $pet = Pet::create($request->except('file'));
         $pet->image()->create([
             'url' => $url
@@ -91,13 +94,15 @@ class PetController extends Controller
     public function edit(Pet $pet)
     {
 
-        $pet_type = PetType::pluck('name','id');
+        $cities = City::all();
+        $pet_types = PetType::all();
         $user = User::pluck('name','id');
 
         return view('admin.pets.edit',[
 
-            'pet_type'=>$pet_type,
+            'pet_types'=>$pet_types,
             'user'=>$user,
+            'cities'=>$cities
         ], compact('pet'));
 
     }
@@ -128,7 +133,7 @@ class PetController extends Controller
         
         $pet->update($request->except('file'));
         if ($fileIsNotNull) {
-            $url = $request->file('file')->store('/');
+            $url = $request->file('file')->store('pet', 'public');
             if ($pet->image) {
                 $image = $pet->image()->update([
                     'url' => $url

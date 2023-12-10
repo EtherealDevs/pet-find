@@ -80,7 +80,7 @@ class PostController extends Controller
         ]);
 
         if ($fileIsNotNull) {
-            $url = $request->file('file')->store('/');
+            $url = $request->file('file')->store('post', 'public');;
             if ($post->image) {
                 $image = $post->image()->update([
                     'url' => $url

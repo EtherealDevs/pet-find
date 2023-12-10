@@ -16,7 +16,7 @@
                 }
                 @endphp
                 @if($post->image)
-                    <article style="background-image: url('{{ url(Storage::url($post->image->url)) }}'); background-position: center; background-size: cover; " class="bg-black/20 rounded-lg p-8 md:p-12 @if($loop->first) md:col-span-2 mb-8 @endif">
+                    <article style="background-image: url('/img/{{ $post->image->url }}'); background-position: center; background-size: cover; " class="bg-black/20 rounded-lg p-8 md:p-12 @if($loop->first) md:col-span-2 mb-8 @endif">
 
                         @else
                         <article class="bg-center bg-cover bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-black/20 p-8 rounded-lg md:p-12 @if($loop->first) md:col-span-2 mb-8 @endif">

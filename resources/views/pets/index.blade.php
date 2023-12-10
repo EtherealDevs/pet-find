@@ -16,7 +16,7 @@
             <div class="flex flex-col justify-center items-center h-[100vh] pt-4"
                 style='background-image: url("https://images.unsplash.com/photo-1601758177266-bc599de87707?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'>
                 <div
-                    class="relative flex flex-col items-center rounded-[10px] border-[1px] border-gray-200 w-[368px] xl:w-[576px] 2xl:w-[576px] 3xl:w-[576px] mx-auto p-4 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
+                    class="relative h-fit overflow-auto flex flex-col items-center rounded-[10px] border-[1px] border-gray-200 w-[368px] xl:w-[576px] 2xl:w-[576px] 3xl:w-[576px] mx-auto p-4 bg-white bg-clip-border shadow-md shadow-[#F3F3F3] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
                     <div class="flex items-center justify-between rounded-t-3xl p-3 w-full">
                         <div class="text-lg font-bold text-navy-700 dark:text-white">
                             Mascotas
@@ -38,7 +38,7 @@
                                 <div class="flex h-16 items-center justify-center">
 
                                     @if ($pet->image)
-                                        <img class="h-24 w-24 rounded-xl bg-center" src="{{ Storage::url($pet->image->url) }}"
+                                        <img class="h-24 w-24 rounded-xl bg-center" src="/img/{{ $pet->image->url }}"
                                             alt="" />
                                     @endif
 

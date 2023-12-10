@@ -42,21 +42,31 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('breed', 'Cria') !!}
+                {!! Form::label('pet_type_id', 'Tipo de Mascota') !!}
+                <select class='form-control' name="pet_type_id" id="pet_type_id">
+                    <option value="">Seleccionar</option>
+                    @foreach ($pet_types as $pet_type)
+                    <option @if ($pet_type->id == $pet->pet_type_id) selected @endif value="{{$pet_type->id}}">
+                        {{ucfirst(__($pet_type->name))}}
+                    </option>
+                    @endforeach
+
+                </select>
+
+                @error('pet_type_id')
+                    <span class="text-danger">{{$message}}</span>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('breed', 'Raza') !!}
                 {!! Form::text('breed', NULL, ['class' => 'form-control', 'placeholder' => 'features']) !!}
 
                 @error('breed')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-            <div class="form-group">
-                {!! Form::label('pet_type_id', 'Raza') !!}
-                {!! Form::select('pet_type_id',$pet_type, NULL, ['class' => 'form-control', 'placeholder' => 'Raza']) !!}
-
-                @error('pet_type_id')
-                    <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            
 
             <div class="form-group">
                 {!! Form::label('age', 'Edad') !!}
@@ -69,8 +79,17 @@
             
             <div class="form-group">
                 {!! Form::label('gender', 'Genero') !!}
-                {!! Form::text('gender', NULL, ['class' => 'form-control', 'placeholder' => 'Genero']) !!}
+                <select class='form-control' name="gender" id="gender">
+                    <option value="">Seleccionar</option>
+                   
+                    <option @if ($pet->gender == "male") selected @endif value="male">
+                        Macho
+                    </option>
+                    <option @if ($pet->gender == "female") selected @endif value="female">
+                        Hembra
+                    </option>
 
+                </select>
                 @error('gender')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -86,12 +105,25 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('city', 'Ciudad') !!}
-                {!! Form::text('city', NULL, ['class' => 'form-control', 'placeholder' => 'Ciudad']) !!}
+                {!! Form::label('city', 'Ubicación') !!}
+                
+            <select
+                class="form-control "
+                required="required" name="city"
+                id="city">
+                <option value="{{ old('city') }}">Seleccionar</option>
+                @foreach ($cities as $city)
+                <option @if ($pet->city === $city->name) selected @endif value="{{$city->name}}">{{$city->name}}</option>
+                @endforeach
+            </select>
+            @error('city')
+            <small class="text-red-500">{{__($message)}}</small>
+            @enderror
 
                 @error('city')
                     <span class="text-danger">{{$message}}</span>
                 @enderror
+
             </div>
 
             
